@@ -8,11 +8,11 @@ class Customer
     File f=null;
     void show(String category) 
     {
-        if(category.equals("Watches") )
+        if(category.equalsIgnoreCase("Watches") )
         {  f= new File("watches.txt");
 
     }
-    else if(category.equals("Bags"))
+    else if(category.equalsIgnoreCase("Bags"))
     {
      f= new File("bags.txt");
     }
@@ -61,19 +61,18 @@ class Customer
             }
            
       static  void select(int prod_no,String category){
-          if(category.equals("Watches"))
+          if(category.equalsIgnoreCase("Watches"))
           {
                 Watches obj= new Watches();
                 obj.remove(prod_no);
           }
-         else if(category.equals("Bags"))
+         else if(category.equalsIgnoreCase("Bags"))
          {
                 Bags obj1=new Bags();
                 obj1.remove(prod_no);
          }
           
-            System.out.println("Congratulations!! , you successfully purchased your product! ");
-            
+          
 
         }
     }

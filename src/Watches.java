@@ -1,9 +1,10 @@
 /** This class deals with Watches and thus inherits the Product class */
 
 import java.io.*;
+import java.util.*;
 class Watches extends Product
 {
-    static int watch_count=1;
+    
     Watches(){
         super();
     }
@@ -15,21 +16,25 @@ class Watches extends Product
 
     void add()
     {
+     
         File f = new File("watches.txt");
+        // File stock = new File("stock_watches.txt");
+       
         try{
-            FileWriter fw = new FileWriter(f,true);
-            // BufferedWriter bw = new BufferedWriter(new FileWriter(f,true));
-            String temp=product_no+" "+brand+" "+name+" "+price+" "+discount+" "+System.getProperty("line.separator");
-            fw.write(temp);            
-            // bw.newLine();
-            fw.close();
-            // bw.close();
+            boolean find=searchInStock(product_no,"add");
+            if(find==false)
+            {
+                FileWriter fw = new FileWriter(f,true);
+                String temp=product_no+" "+brand+" "+name+" "+price+" "+discount+" "+"1"+" "+System.getProperty("line.separator");
+                fw.write(temp);     
+                fw.close();
+            }
         }
         catch(IOException ex)
         {
-            System.err.println(ex);
+            System.err.println(ex+"**inside add**");
         }
-       
+      
     }
 
     void remove(int n)
@@ -37,7 +42,29 @@ class Watches extends Product
        
         File inputFile = new File("watches.txt");
         File tempFile = new File("myTempFile.txt");
-        File rr = new File("rrrr.txt");
+        // File rr = new File("rrrr.txt");
+
+
+        
+                boolean find=searchInStock(n, "remove");
+                if(find == false)
+                {
+                    System.out.println("Not Available!!");
+                }
+        
+      
+           
+        
+
+            
+    }
+    boolean searchInStock(int n,String purpose)
+    {
+        boolean flag=false;
+        File f = new File("watches.txt");
+        File inputFile = new File("watches.txt");
+        File tempFile = new File("tempo_Stock.txt");
+        // File rr = new File("rrrr.txt");
         try{
 
          
@@ -48,14 +75,32 @@ class Watches extends Product
             while((currentLine = reader.readLine()) != null) {
                
                 String trimmedLine = currentLine.trim();  // trim newline when comparing with lineToRemove
-                int index=trimmedLine.indexOf(" ");
+                int firstgap=trimmedLine.indexOf(" ");
 
-                int pno=Integer.parseInt(trimmedLine.substring(0,index));
+                int pno=Integer.parseInt(trimmedLine.substring(0,firstgap));
                 
                 
-                if(pno == n) continue;
-                // System.out.println(trimmedLine);
-                // System.out.println("***********************");
+                if(pno == n) {
+                    int index = trimmedLine.lastIndexOf(" ");
+                    int val=Integer.parseInt(trimmedLine.substring(index+1));
+                    if(purpose.equals("add"))
+                    val++;
+                    else
+                    {
+                        if(val==0)
+                        System.out.println("Not enought in Stock !!,Sorry");
+                        else
+                       {
+                        val--;
+                        System.out.println("Congrats, transaction successfull!!");
+                       }
+                    }
+                    trimmedLine=trimmedLine.substring(0,index+1)+Integer.toString(val)+" ";
+                    flag=true;
+                    writer.write(trimmedLine + System.getProperty("line.separator"));
+                    continue;
+                }
+               
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close(); 
@@ -63,19 +108,16 @@ class Watches extends Product
 
             
             //delete file
-            // File f = new File("myTempFile.txt");
-            // success = f.delete();
-
-            //System.out.println(success);
             inputFile.delete();
+            //rename temp file
             boolean success = tempFile.renameTo(inputFile);
+            // System.out.println(success);
         }
         catch(IOException e)
         {
-            System.out.println(e+"....");
+            System.out.println(e+"**inside searchInStock**");
         }
-       
+       return flag;
         
     }
-    
 }

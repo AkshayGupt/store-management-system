@@ -27,4 +27,5 @@ abstract class Product
     }
 
     abstract void add( );
+    abstract boolean searchInStock(int n,String purpose );
 }
