@@ -1,10 +1,11 @@
-import java.util.*;
-class Mall{
 
-    public static void main(String args[])
+import java.util.*;
+public class Mall implements Runnable{
+
+  public  void run()
     {
         Scanner sc=new Scanner(System.in);
-        System.out.println("**************Welcome to Smart Store*******************");
+        System.out.println(" \t\t\t################# Welcome to Smart Store #################");
         System.out.println("Are you a customer YES/NO");
         String cus=sc.next();
         while(true)
@@ -46,7 +47,7 @@ class Mall{
                     break;
                     default:System.out.println("Wrong choice");
             }
-            System.out.println("Do you want to exit ? YES / NO");
+            System.out.println("Do you want to exit the store ? YES / NO");
             if(sc.next().equals("YES"))
             break ;
         }

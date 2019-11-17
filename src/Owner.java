@@ -11,7 +11,7 @@ class Owner {
     {
         if(ch=="add")
         {
-            if(c=='w')
+            if (c=='w')
             {
                 Watches obj = new Watches(p,name,brand,price,discount);
                 obj.add();

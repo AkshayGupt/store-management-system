@@ -20,13 +20,13 @@ class Customer
                
                 Scanner sc=new Scanner(f);
                 int i=0;
-              
+                System.out.println("*************************");
                 while(sc.hasNextLine())
                 {
                     String temp=sc.nextLine();
                     temp.trim();
                     temp=temp+" ";
-                    System.out.println("*************************");
+                   
                     String pno=temp.substring(i,temp.indexOf(" "));
                     System.out.println("Product-number: "+pno);
                     temp=temp.substring(temp.indexOf(" ")+1);

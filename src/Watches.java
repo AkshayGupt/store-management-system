@@ -18,7 +18,6 @@ class Watches extends Product
     {
      
         File f = new File("watches.txt");
-        // File stock = new File("stock_watches.txt");
        
         try{
             boolean find=searchInStock(product_no,"add");
@@ -34,6 +33,7 @@ class Watches extends Product
         {
             System.err.println(ex+"**inside add**");
         }
+
       
     }
 
@@ -88,7 +88,7 @@ class Watches extends Product
                     else
                     {
                         if(val==0)
-                        System.out.println("Not enought in Stock !!,Sorry");
+                        System.out.println("Not enough in Stock !!,Sorry");
                         else
                        {
                         val--;
