@@ -83,6 +83,7 @@ class Bags extends Product
                         else
                        {
                         val--;
+                        bill.add(currentLine);
                         System.out.println("Congrats, transaction successfull!!");
                        }
                     }

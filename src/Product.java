@@ -1,7 +1,8 @@
 /** This is an abstract class which can be extended by any product class  */
-
+import java.util.ArrayList;
 abstract class Product
 {
+    static ArrayList <String> bill =new ArrayList<>();
     String category;
     int product_no; 
     String name;

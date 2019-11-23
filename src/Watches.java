@@ -64,9 +64,7 @@ class Watches extends Product
         File f = new File("watches.txt");
         File inputFile = new File("watches.txt");
         File tempFile = new File("tempo_Stock.txt");
-        // File rr = new File("rrrr.txt");
         try{
-
          
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -92,6 +90,7 @@ class Watches extends Product
                         else
                        {
                         val--;
+                        bill.add(currentLine);
                         System.out.println("Congrats, transaction successfull!!");
                        }
                     }
