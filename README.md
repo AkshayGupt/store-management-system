@@ -1,3 +1,3 @@
 # store-management-system
 Admin Panel
-!(admin_panel.PNG)
+![Image of Yaktocat](admin_panel.PNG)
