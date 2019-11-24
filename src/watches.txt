@@ -1,5 +1,5 @@
-12 titan ultra 1200.0 10.0 0 
-32 fasttrack hover 10900.0 10.0 0 
-55 hio green 4000.0 5.0 2 
-2323 adadasd asd 3123.0 123.0 0 
-22 dqq 2 2132321.0 12312.0 0 
+12 titan ultra 1200.0 10.0 6 
+32 fasttrack hover 10900.0 10.0 5 
+55 hio green 4000.0 5.0 1 
+2323 adadasd asd 3123.0 123.0 5 
+22 dqq 2 2132321.0 12312.0 5 
