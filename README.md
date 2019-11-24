@@ -1,3 +1,5 @@
 # store-management-system
 Admin Panel
-![Image of Yaktocat](admin_panel.PNG)
+![Image of Admin Panel](admin_panel.PNG)
+Customer Panel
+![Image of Customer Panel](customer_panel.PNG)
