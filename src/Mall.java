@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 public class Mall implements Runnable{
 
-  public  void run()
+ synchronized public  void run()
     {
         Scanner sc=new Scanner(System.in);
         System.out.println(" \t\t\t################# Welcome to Smart Store #################");
